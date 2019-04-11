@@ -12,11 +12,11 @@ import org.sonatype.mavenbook.weather.WeatherService;
 
 public class WeatherServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String zip = request.getParameter("zip");
+		String woeid = request.getParameter("woeid");
 		WeatherService weatherService = new WeatherService();
 		PrintWriter out = response.getWriter();
 		try {
-			out.println(weatherService.retrieveForecast(zip));
+			out.println(weatherService.retrieveForecast(woeid));
 		} catch (Exception e) {
 			out.println("Error Retrieving Forecast: " + e.getMessage());
 		}
